@@ -116,9 +116,13 @@ test('It highlights the correct digits.', () => {
     binaryClock.setup();
     binaryClock.ui();
     binaryClock.seconds(9);
+    binaryClock.hours(11);
 
     let secondsOnes = binaryClock.segments.seconds['1'];
     let secondsTens = binaryClock.segments.seconds['10'];
+
+    let hoursOnes = binaryClock.segments.hours['1'];
+    let hoursTens = binaryClock.segments.hours['10'];
 
     expect(secondsOnes[0].element.classList.contains('bc-active')).toBe(true);
     expect(secondsOnes[1].element.classList.contains('bc-active')).toBe(false);
@@ -128,4 +132,6 @@ test('It highlights the correct digits.', () => {
     expect(secondsTens[0].element.classList.contains('bc-active')).toBe(false);
     expect(secondsTens[1].element.classList.contains('bc-active')).toBe(false);
     expect(secondsTens[2].element.classList.contains('bc-active')).toBe(false);
+
+    expect(hoursTens[1].element.classList.contains('bc-active')).toBe(true);
 })

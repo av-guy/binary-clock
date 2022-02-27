@@ -1,6 +1,6 @@
 import './styles/main.css';
 
-const TESTING = false;
+const TESTING = true;
 
 class BinaryBulb {
     constructor() {
@@ -95,7 +95,8 @@ class BinaryClock {
     }
 
     highlight(section, bin) {
-        if (section.length === 3) bin = bin.slice(1, bin.length);
+        bin = bin.slice(4 - section.length, bin.length);
+
         for (let i = 0; i < bin.length; i++) {
             try {
                 section[i].notify(parseInt(bin[i]));
@@ -111,7 +112,7 @@ class BinaryClock {
             [tensPlace, onesPlace] = [dec[0], dec[1]];
         } else {
             onesPlace = dec[0];
-            tensPlace = '0000';
+            tensPlace = '0';
         }
         onesBin = this.parser.convertToBinary(onesPlace);
         tensBin = this.parser.convertToBinary(tensPlace);
