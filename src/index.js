@@ -1,6 +1,6 @@
 import './styles/main.css';
 
-const TESTING = true;
+const TESTING = false;
 
 class BinaryBulb {
     constructor() {
